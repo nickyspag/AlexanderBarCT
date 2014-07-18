@@ -1,0 +1,33 @@
+input { margin: 2em 2em; }
+/* hidden by default, shown as needed */
+div.page { display: none; }
+
+div.logo {   
+  height: 10em;
+  background: url(../img/logo.svg);
+  background-size: contain;
+  background-repeat: no-repeat; 
+  background-position: top center;
+  margin: 1em auto;
+}
+
+body { 
+    padding-bottom: 70px; 
+}
+html.busy, html.busy * {  
+  cursor: wait !important;  
+}
+#imgpreview { margin-bottom: 2em; }
+
+.modal-body input,
+.modal-body textarea,
+.modal-body select,
+.modal-body .form-control
+ { max-width: 90%; margin:auto;}
+
+.modal-body .text-danger { font-weight:bold; font-size: 12pt;}
+
+.page input,
+.page select,
+.page textarea
+{ max-width:90%; margin:auto;}

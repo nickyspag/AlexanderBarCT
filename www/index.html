@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+        <title>Alexander Bar, Café &amp; Theatre - The App</title>
+        <script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/jquery.validate.min.js"></script>
+        <script type="text/javascript" src="js/alexander.js"></script>
+        <script type="text/javascript" src="js/sprintf.js"></script>
+        <script type="text/javascript" src="js/hammer.min.js"></script>
+        <link rel="stylesheet" id="bootstrap" href="css/themes/superhero.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/alexander.css" />
+
+    </head>
+    <body>
+
+    <div class="container-fluid">
+
+    <div class="logo col-xs-12 clearfix"></div>
+
+    <div id="loginpage" class="page col-xs-12">
+        <form id="loginform">
+        <div class="page-header">
+        <h1>Welcome <small> to Alexander Bar </small></h1>
+        <p></p>
+        </div>
+            
+            <p>Please enter your Florin or cellnumber and password</p>
+            <p class="text-warning"><button id="resendpass" class="btn btn-warning btn-md">(Re)Send Me My Password</button><br />to have your password sent to you by SMS.</p>
+            <p class="text-info"><button id="florinreg" class="btn btn-info btn-md">Register for Florin account</button><br />if you haven't got one yet.</p>
+            <div class="form-group">
+            <label for="username">Florin or Cellnumber</label>
+            <input required="required" name="customer_code" type="tel" class="form-control text-center required input-lg" placeholder="4XXXX" id="customer_code" />
+            </div>
+            <div class="form-group">
+            <label for="password">Your Password</label>
+            <input required="required" name="password" class="form-control text-center required input-lg" id="password" type="password" />
+            </div>
+            <div class="navbar text-center">
+                <button id="loginbutton" type="submit" class="btn btn-lg btn-primary">Log In</button>
+            </div>
+        </form>
+    </div>
+
+    <div id="persian" class="page">
+    <div class="page-header">
+        <h1>Hello <small id="customer_name"></small></h1>
+    </div>
+        <ul class="nav">
+        <li>Your Florin Balance: ƒ<span id="florins"></span></li>
+        <li>Your Open Tables R<span id="open"></span></li>
+        <li><a data-toggle="modal" data-target="#whatsplayingmodal" id="whatsplaying">What song is playing now?</a></li>
+        <li><a href="#showing">Browse and Book Shows</a></li>
+        <li><a data-toggle="modal" data-target="#telegrammodal" id="telegram">Send a Telegram</a></li>
+        <li><a href="#menu1">Menu</a></li>
+        </ul>
+    </div>
+
+    <div id="showing" class="page">
+     <div class="page-header col-xs-12">
+        <h1>What's Showing Upstairs</h1>
+    </div>
+    <div class="col-xs-12" id="shows">Loading...</div>
+    <nav class="navbar navbar-inverse navbar-default navbar-fixed-bottom" role="navigation">
+    <div class="container">
+      <a class="btn btn-primary btn-md" href="#persian"><i class="glyphicon glyphicon-backward"></i> Back</a>
+    </div>
+    </nav>
+    </div>
+
+    <div id="menu1" class="page">
+     <div class="">
+        <h1 class="col-xs-6"><a href="#drinks">Drinks</a></h1><h1 class="col-xs-6"><a  href="#food">Food</a></h1>
+    </div>
+     <div class="col-xs-12" id="drinks">Loading...</div>
+     <nav class="navbar navbar-inverse navbar-default navbar-fixed-bottom" role="navigation">
+    <div class="container">
+      <a class="btn btn-primary btn-md" href="#persian"><i class="glyphicon glyphicon-backward"></i> Back</a>
+    </div>
+    </nav>
+    </div>
+    
+    <div style="display:none" id="booknowmodal" class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">Booking for <small></small></h4>
+          </div>
+          <div class="modal-body">
+           
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+      
+    <div style="display:none" id="whatsplayingmodal" class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">What's Playing Now <small></small></h4>
+            <h5 class="modal-title"></h5>
+          </div>
+          <div class="modal-body">Loading...</div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+    <div style="display:none" id="telegrammodal" class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">Send a Telegram <small></small></h4>
+          </div>
+          <div class="modal-body">
+          <form id="telegramform" class="form-horizontal" role="form">
+          <div class="form-group"><label for="telegramto">To</label><input placeholder="Name or description of recipient" name="to" id="telegramto" type="text" class="form-control required" /></div>
+          <div class="form-group"><label for="telegrammessage">Message</label><textarea name="message" class="form-control" id="telegrammessage required"></textarea></div>
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary btn-md">Send</button>
+          </div>
+          </form>  
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    </div><!-- end container -->
+  <script src="cordova.js"></script>        
+</body>
+</html>
