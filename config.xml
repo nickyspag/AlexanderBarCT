@@ -13,6 +13,6 @@
         Nitric Software Laboratory
     </author>
     <content src="index.html" />
-    <access origin="*" />
+    <access origin="https://alexanderbar.co.za" />
     <icon src="icon.png" />
 </widget>

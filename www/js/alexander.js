@@ -1,3 +1,4 @@
+$.support.cors = true;
 $.fn.serializeObject = function()
 {
     var o = {};
